@@ -1,0 +1,17 @@
+<!-- class=selected if settings has it as the default -->
+  <a class="kpi-panel display-inline {{if (eq @currentKpiId @kpi.id) 'selected' ''}}" data-kpi-id={{@kpi.id}} {{on "click" @updateKpiParams}}>
+    <p class="no-margin capitalize" data-kpi-id={{@kpi.id}}>{{@kpi.label}}</p>
+    <p class="kpi-value" id={{@kpi.id}} {{did-insert this.countUp @kpi}} data-kpi-id={{@kpi.id}}>{{@kpi.value}}</p>
+    <p class="display-inline no-margin" data-kpi-id={{@kpi.id}}>
+      <small data-kpi-id={{@kpi.id}}>
+        {{@kpi.direction}} {{@kpi.percentageChange}}
+      </small>
+    </p>
+
+    <p class="display-inline no-margin pull-right" data-kpi-id={{@kpi.id}}>
+      <small data-kpi-id={{@kpi.id}}>
+        {{@kpi.startDate}} - {{@kpi.endDate}}
+      </small>
+    </p>
+    <div class="clear-both"></div>
+  </a>

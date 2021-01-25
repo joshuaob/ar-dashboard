@@ -1,0 +1,5 @@
+<div class="panel" {{did-insert this.buildChart @trend}}>
+  <p>{{@trend.chartLabel}} <small>Offer 1</small> <small>Offer 2</small></p>
+  <span class="dot"></span> <span>{{@trend.startDate}} - {{@trend.endDate}}</span>
+  <canvas id="transaction-value-by-store-bubble" style="height: 50px" height="50"></canvas>
+</div>

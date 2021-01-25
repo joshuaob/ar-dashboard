@@ -1,5 +1,96 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-<WelcomePage />
-{{!-- Feel free to remove this! --}}
+<div class="" id="ar-demo">
+  <p style="color: #16a085; font-size: 20px;margin-bottom: 10px">
+    <span >Rewards</span> <br>
+    In-time
+  </p>
 
-{{outlet}}
+  <div class="" style="margin-bottom: 20px;margin-top: 20px">
+    <h1 class="display-inline no-margin" style="line-height: 61px">Analytics</h1>
+
+    <!-- date filters -->
+    <div class="display-inline pull-right">
+      <div class="panel display-inline">
+        Compare: <input type="date" id="comparison-a-start-date" value={{this.comparisonAStartDate}} {{on "change" this.updateComparisonAStartDateParams}}> - <input type="date" id="comparison-a-end-date" value={{this.comparisonAEndDate}} {{on "change" this.updateComparisonAEndDateParams}}>
+        with: <input type="date" id="comparison-b-start-date" value={{this.comparisonBStartDate}} {{on "change" this.updateComparisonBStartDateParams}}> - <input type="date" id="comparison-b-end-date" value={{this.comparisonBEndDate}} {{on "change" this.updateComparisonBEndDateParams}}>
+      </div>
+
+      <div class="panel display-inline">
+        Show: <select class="" name="" {{on "change" this.updatePresetDateParams}}>
+          <option value="last-7-days">Last 7 days</option>
+          <option value="last-30-days">Last 30 days</option>
+          <option value="last-3-months">Last 3 months</option>
+          <option value="last-6-months">Last 6 months</option>
+          <option value="last-12-months">Last 12 months</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="clear-both"></div>
+  </div>
+
+  <!-- offer filters -->
+  <!-- selected if offer params name is equal -->
+  <div class="offers-wrapper x-scrolling-wrapper width-100">
+    <div class="offer-badge display-inline {{if (eq this.offerId "all-offers") 'selected' ''}}">
+      <a href="" data-offer-id="all-offers" {{on "click" this.updateOfferParams}}>All Live</a>
+    </div>
+
+    <div class="offer-badge display-inline {{if (eq this.offerId "expired-offers") 'selected' ''}}">
+      <a href="" data-offer-id="expired-offers" {{on "click" this.updateOfferParams}}>All Expired Offers</a>
+    </div>
+
+    <div class="offer-badge display-inline {{if (eq this.offerId "black-friday-2020") 'selected' ''}}">
+      <a href="" data-offer-id="black-friday-2020" {{on "click" this.updateOfferParams}}>Black Friday 2020</a>
+    </div>
+
+    <div class="offer-badge display-inline {{if (eq this.offerId "christmas-2020") 'selected' ''}}">
+      <a href="" data-offer-id="christmas-2020" {{on "click" this.updateOfferParams}}>Christmas 2020</a>
+    </div>
+
+    <div class="offer-badge display-inline {{if (eq this.offerId "new-for-winter") 'selected' ''}}">
+      <a href="" data-offer-id="new-for-winter" {{on "click" this.updateOfferParams}}>New for Winter</a>
+    </div>
+
+    <div class="offer-badge display-inline {{if (eq this.offerId "winter-warmer") 'selected' ''}}">
+      <a href="" data-offer-id="winter-warmer" {{on "click" this.updateOfferParams}}>Winter Warmer</a>
+    </div>
+
+    <div class="offer-badge display-inline {{if (eq this.offerId "january-sale") 'selected' ''}}">
+      <a href="" data-offer-id="january-sale" {{on "click" this.updateOfferParams}}>January Sale</a>
+    </div>
+  </div>
+
+  <!-- KPIs summary -->
+  <div class="kpis-wrapper x-scrolling-wrapper width-100">
+    {{#each this.filteredKpis.data as |kpi|}}
+        <Kpi::Summary @kpi={{kpi}}
+                      @currentKpiId={{this.kpiId}}
+                      @updateKpiParams={{this.updateKpiParams}}/>
+    {{/each}}
+  </div>
+
+  <!-- Graphs -->
+  {{#each this.filteredTrends.data as |trend|}}
+    {{#if (eq trend.name "transaction value over time in store")}}
+      <div class="">
+        <!-- <h3>Trend Over Time Line Chart (In-Store)</h3> -->
+        <Chart::TrendOverTime @trend={{trend}} @selectedOffer={{this.offerId}}></Chart::TrendOverTime>
+      </div>
+      <br>
+    {{/if}}
+
+    {{#if (eq trend.id "transaction-value-by-store")}}
+      <div class="">
+        <!-- <h3>Trend Over By Store (Bar Chart)</h3> -->
+        <Chart::TrendByStore @trend={{trend}} @selectedOffer={{this.offerId}}></Chart::TrendByStore>
+      </div>
+      <br>
+
+      <div class="">
+        <!-- <h3>Trend Over By Store (Bubble Chart)</h3> -->
+        <Chart::TrendByStoreBubble @trend={{trend}} @selectedOffer={{this.offerId}}></Chart::TrendByStoreBubble>
+      </div>
+      <br>
+    {{/if}}
+  {{/each}}
+</div>

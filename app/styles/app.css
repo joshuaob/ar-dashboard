@@ -1,0 +1,164 @@
+hr {
+  border: 1px solid #ecf0f1
+}
+
+input {
+  min-width: 150px;
+  height: 25px;
+}
+
+select {
+  min-width: 150px;
+  height: 29px;
+}
+
+body {
+  background-color: #fafafa;
+  font-family: 'Nunito Sans', sans-serif;
+  padding: 0 50px;
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+#ar-demo {
+  /* min-width: 900px; */
+  min-width: 1290px;
+}
+
+.showme {
+  border: 1px solid teal !important;
+}
+
+.dot {
+  height: 8px;
+  width: 8px;
+  background-color: #27ae60;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.x-scrolling-wrapper {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.width-100 {
+  width: 100% !important
+}
+
+.panel {
+  border: 1px solid #ecf0f1;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: white
+}
+
+.kpi-value {
+  font-size: 32px;
+  /* font-weight: bold; */
+  margin: 15px 0
+}
+
+.kpi-panel {
+  border: 1px solid #ecf0f1;
+  padding: 20px;
+  border-radius: 10px;
+  min-width: 200px;
+  margin-right: 20px;
+  background-color: white;
+  border-bottom: 2px solid #ecf0f1;
+}
+
+.kpi-panel:hover {
+  border-bottom: 2px solid #16a085;
+  cursor: pointer;
+}
+
+.kpi-panel.selected {
+  border-bottom: 2px solid #16a085;
+}
+
+.display-inline {
+  display: inline-block;
+}
+
+.pull-right {
+  float: right
+}
+
+.no-margin {
+  margin: 0 !important
+}
+
+.kpis-wrapper {
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+}
+
+.kpi-summary-wrapper {
+  display: inline-block;
+  min-width: 225px;
+  /* margin: 10px; */
+}
+
+.kpi-summary {
+  padding: 10px;
+}
+
+/* .badge {
+  border:1px solid grey;
+  padding: 5px 10px;
+  border-radius: 5px;
+} */
+
+.offer-badge {
+  /* border:1px solid grey; */
+  padding: 5px 15px;
+  border-radius: 5px;
+  margin-right: 15px;
+  /* color: black; */
+}
+
+.offer-badge a {
+  text-decoration: none;
+  /* border:1px solid grey; */
+  /* padding: 5px 15px;
+  border-radius: 5px;
+  margin-right: 15px; */
+  color: black;
+}
+
+.offer-badge.selected a {
+  color: white;
+}
+
+.offer-badge:hover a {
+  color: white;
+}
+
+.offer-badge:hover {
+  background-color: #2c3e50;
+  color: white;
+  cursor: pointer;
+}
+
+.offer-badge.selected {
+  background-color: #2c3e50;
+  color: white
+}
+
+.offers-wrapper {
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+}
+.clear-both {
+  clear: both;
+}

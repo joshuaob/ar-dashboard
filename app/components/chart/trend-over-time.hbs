@@ -1,0 +1,11 @@
+<div class="panel" {{did-insert this.buildChart @trend @selectedOffer}}>
+  <p>{{@trend.chartLabel}} <small>{{currentOffer}}</small></p>
+  <p>
+    {{@trend.value}} <small>{{@trend.direction}} {{@trend.percentageChange}}</small>
+  </p>
+  <p>
+    <small><span class="dot"></span> <span></span></small>
+    <small>{{@trend.startDate}} - {{@trend.endDate}}</small>
+  </p>
+  <canvas id={{@trend.id}} style="height: 50px" height="50"></canvas>
+</div>
